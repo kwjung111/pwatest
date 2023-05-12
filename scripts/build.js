@@ -11,6 +11,8 @@ async function copyScanditLibrary(moduleName) {
   fs.copySync(`./node_modules/${moduleName}/build/engine/`, path.join(LIBRARY_LOCATION, "engine"));
 }
 
+
+
 async function replaceLicenseKey(path, license) {
   if (typeof license === "string") {
     let content = await fs.promises.readFile(path, "utf8");
