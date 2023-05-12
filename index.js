@@ -5770,7 +5770,7 @@ async function run() {
   view.setProgressBarMessage("Loading...");
   view.showProgressBar();
   await Cc({
-    licenseKey: "AXqziweIJJ07JXsZ9TJOM7kGqfcpIvm8XR3gF5dWOZavd9BtlEs4TwYoUdD6Qf8ra3d7DSRoC/ydVjN4/AOPvNJdGQr4W5JD6S/uTFUNEaW8EOUnBB1PftBrqZMYYvqLdltRB30g44lwbos/0GovmT0h5lE0dFjDUDbKKYNuB0dnJuWqZHDtcRJKMaM1N8h7CR9JETQDBGC/BP8dXhoPND0I5PkifNEK6h6LZiRympGwUIXHUKLzGV3k/JBwgzggVQyGyiQOZCL/mC5vYEpANTqFsRvHtvoGchNPOzkjUpyVtOrYHkKab3HKiw7pLCT2OtKxgrwJppzsNeWijSzFhiC6ZDtgojW91+KRT4B3yWyYxkhobMR4p2rO2gdJY37aMA91TpmxWHeCjMXpE+0WNfBhzJihJms8C5LWmoD3+Lh7Nik4Jxw4CInCrq8Hi8wC0Tq9D5ZFvpx/Hieg6XHiz2yPrQUK3GL/rnvG+q5QQOqM7WOb48Yjl7kMF4bjcv5V3obNKuerlZyYjtwsTWmJhGKdb4pQk2xFl1AhkeSI/bNGLd0pztLspjdiGKacU1hcLzZz9ztAJ1+nmsn+coJ+1b8zaOIe7q1JeyTYJvbVCtg0Syf4Z+d3QY7JcggsnJI/GSMYwApTWYLp7LDBrjfWYHf6/ElDoPPs6tcKvlIDgIbwhXyuQy+JWPRbRPOBAnpML7x/maB2zn7Av5F8HqO8PDUfyuVB/EbiaCicwXdYwR8JleLmrJs5oIodDEk1C44ObiPyoLKEw+PNfZw3OxEDb7kLZ4rbjZYMds9kpoR4y2xSfet35zuA+wGf9U4P5/59U3Qv0aDWq4Z4hQUe/F+IlqDjtrtysaV43Hn1jzr4TpsksQcP6kVVEbrimlZr1QjEtTI=",
+    licenseKey: "AV7z2j+IHCEAO8A6SAFjY2kQyTwrDPsA6kkXcTVlq9Rka7ujgli+rWkdXnfbD0mm7FUY5jVp+Ar6EMeUcVVJu6F2Z1kmN2YRBXGlBJxTrdWhMKON2VPUa4hjL1i2c2pt33jUFF5vw/J6Y0d07le/KZdqrDolSX/M/zsS880YrbcaJCrYcjKSO147/8RcEGvGhg1cYNMFRGhFy+xR+TmppF1/hoWcAh7fyApm2ThSEwX/UTCtrc8/FvmREV2LsUrI6IwGWPO8bCSuKHtvhW/W5dpkh3g5TKPXvdYKg7BJR6k/9hNohm0aNjyzuE79YAlmiOg5cFA1gLPc8MJKZS4/t+j9Z3rErEeHv7cPrb6erETB4sZZLFliXvWICnEV04P4+0EuQu0Jzy+jpi8+Ak13xQP/Hrcwx3EwN6qUdeefBc1oX0GHgJdzRY0M39IuKiyEcdfsJZ3MclK2VXa6JNQU3dTt0W6dSpW0lafGAETphtNGfWKbNAzlHyu1ly9JBC5vkZMgfV3LvR0OSObreSC8s40jJ380cXKdlq1U4D5b6sK82mCpqcnRCIPskrOJa/lsFoyxuMJtnRORylay9kbiL6TQpB3wZb79khWdBqFDtfwZEKsWW8teXDQ7Nc57KpHfH45OWXUDjVr+SKXgQf1KKcv1+1mw0TdVRWMSof2FKc9izcFRcWQga2ft1RkwbGj3uPWviA7Px/Xks5Poan58SWLSs7UReQoqYh8OvlaCJS+sJN4yNCdcoqhYVjaBvZHS/CKPaiD6dQ9U4dltNukwSZxXo0t0tawhv+e5bL5nXu3AhoKbsl+j8EVYX3ehkW9vJQ9x+8a51OjQBW1uBlQwvSegcTqe7/jWhC3/BiTF",
     libraryLocation: new URL("library/engine/", document.baseURI).toString(),
     moduleLoaders: [y0()]
   });
@@ -5780,6 +5780,8 @@ async function run() {
   await view.setContext(context);
   const camera = ve.default;
   const cameraSettings = P.recommendedCameraSettings;
+  console.log(cameraSettings.getProperty("VideoResolution"));
+  cameraSettings.setProperty("VideoResolution", Ui.UHD4K);
   await camera.applySettings(cameraSettings);
   await context.setFrameSource(camera);
   const settings = new Z();
