@@ -5780,8 +5780,8 @@ async function run() {
   await view.setContext(context);
   const camera = ve.default;
   const cameraSettings = P.recommendedCameraSettings;
-  console.log(cameraSettings.getProperty("VideoResolution"));
-  cameraSettings.setProperty("VideoResolution", Ui.UHD4K);
+  cameraSettings.setProperty("preferredResolution", Ui.UHD4K);
+  console.log(cameraSettings.getProperty("preferredResolution"));
   await camera.applySettings(cameraSettings);
   await context.setFrameSource(camera);
   const settings = new Z();

@@ -43,8 +43,9 @@ async function run(): Promise<void> {
   // default and must be turned on to start streaming frames to the data capture context for recognition.
   const camera: SDCCore.Camera = SDCCore.Camera.default;
   const cameraSettings = SDCBarcode.BarcodeCapture.recommendedCameraSettings;
-  console.log(cameraSettings.getProperty("VideoResolution"))
-  cameraSettings.setProperty("VideoResolution",SDCCore.VideoResolution.UHD4K);
+  
+  cameraSettings.setProperty('preferredResolution',SDCCore.VideoResolution.UHD4K);
+  console.log(cameraSettings.getProperty('preferredResolution'))
   await camera.applySettings(cameraSettings);
   await context.setFrameSource(camera);
 
@@ -142,3 +143,4 @@ run().catch((error: unknown) => {
   console.error(error);
   alert(error);
 });
+
